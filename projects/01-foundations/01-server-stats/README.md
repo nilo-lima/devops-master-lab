@@ -34,6 +34,11 @@ chmod +x server-stats.sh
 ./server-stats.sh
 ```
 
-## 🧠 Aprendizados
-- Manipulação de strings com `awk` e `sed`.
-- Estruturação de containers para ferramentas de sistema com Alpine e `procps`.
+## 🚀 Próximos Passos (Backlog / Evolução Técnica)
+- [ ] **Exportação para JSON:** Implementar flag `--json` para facilitar integração com pipelines de observabilidade.
+- [ ] **Alertas via Webhook:** Integrar notificações via Discord/Slack para métricas que excedam limites de segurança (ex: CPU > 90%).
+- [ ] **Interface Web:** Criar um microserviço em Python ou Go para expor essas métricas via dashboard.
+
+## 🧠 Lições Aprendidas
+- **Processamento de Strings:** A manipulação de saídas do sistema com `awk` e `sed` provou ser eficiente para scripts leves e portáveis.
+- **Resiliência em Containers:** A instalação do pacote `procps` no Alpine foi crucial para garantir que o formato de saída dos comandos de monitoramento fosse consistente com distribuições Linux robustas.
