@@ -2,8 +2,6 @@
 
 Ferramenta de monitoramento leve desenvolvida em Shell Script para extração de métricas vitais de servidores Linux. Este projeto faz parte do pilar **01-Foundations**.
 
-Link do Desafio Original: [Server Stats Tool - roadmap.sh](https://roadmap.sh/projects/server-stats)
-
 ## 🎯 Objetivo
 O objetivo deste projeto é fornecer uma visão rápida e clara da saúde do servidor (CPU, Memória, Disco e Processos), utilizando ferramentas nativas do sistema operacional para garantir máxima portabilidade e baixo consumo de recursos.
 
@@ -44,3 +42,23 @@ chmod +x server-stats.sh
 ## 🧠 Lições Aprendidas
 - **Processamento de Strings:** A manipulação de saídas do sistema com `awk` e `sed` provou ser eficiente para scripts leves e portáveis.
 - **Resiliência em Containers:** A instalação do pacote `procps` no Alpine foi crucial para garantir que o formato de saída dos comandos de monitoramento fosse consistente com distribuições Linux robustas.
+
+---
+
+## 💖 Apoie este Projeto Open Source
+
+Se você gosta dos meus projetos, considere:
+- 🏆 Me indicar para o GitHub Stars [Indicar Aqui](https://stars.github.com/nominate/)
+- ⭐ Dar uma estrela nos repositórios
+- 🐛 Reportar bugs ou melhorias
+- 🤝 Contribuir com código
+
+---
+
+## ⚖️ Licença
+
+Distribuído sob a licença **Apache 2.0**. Esta licença oferece permissão para uso, modificação e distribuição, além de garantir proteção contra disputas de patentes para colaboradores e usuários. Veja o arquivo [LICENSE](LICENSE) para mais informações.
+
+---
+
+Link do Desafio Original: <a href="https://roadmap.sh/projects/server-stats">Server Stats Tool - roadmap.sh</a>
