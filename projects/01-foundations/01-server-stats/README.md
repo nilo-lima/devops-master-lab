@@ -1,5 +1,4 @@
 # 📊 Server Stats Tool
-`https://roadmap.sh/projects/server-stats`
 
 Ferramenta de monitoramento leve desenvolvida em Shell Script para extração de métricas vitais de servidores Linux. Este projeto faz parte do pilar **01-Foundations**.
 
@@ -64,4 +63,4 @@ Distribuído sob a licença **Apache 2.0**. Esta licença oferece permissão par
 
 ---
 
-
+This project is part of [roadmap.sh](https://roadmap.sh/projects/server-stats) DevOps projects.
