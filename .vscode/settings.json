@@ -1,0 +1,72 @@
+{
+  // --- Interface & Editor ---
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.formatOnSave": true,
+  "editor.renderWhitespace": "boundary",
+  "editor.guides.bracketPairs": true,
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+
+  // --- DevOps & Infra Tools ---
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  
+  // Terraform/HCL
+  "[terraform]": {
+    "editor.defaultFormatter": "hashicorp.terraform"
+  },
+  "[terraform-vars]": {
+    "editor.defaultFormatter": "hashicorp.terraform"
+  },
+
+  // YAML (Kubernetes/Ansible/Docker Compose)
+  "yaml.format.enable": true,
+  "yaml.schemaStore.enable": true,
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+
+  // Docker
+  "[dockerfile]": {
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+  },
+
+  // Python (Automação/Scripts)
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "explicit",
+      "source.organizeImports": "explicit"
+    }
+  },
+
+  // --- Explorer & Security ---
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/__pycache__": true,
+    "**/.venv": true,
+    "**/.terraform": true,
+    "**/node_modules": true,
+    "**/*.pyc": true
+  },
+  
+  // Garantir que segredos não fiquem visíveis acidentalmente em buscas
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/.terraform": true,
+    "**/.venv": true,
+    "**/secret.tfvars": true
+  },
+
+  // --- Spell Check & Conventions ---
+  "cSpell.words": [
+    "dockerized",
+    "terraform",
+    "ansible",
+    "kubernetes",
+    "observability",
+    "gitops"
+  ]
+}
