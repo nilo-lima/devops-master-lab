@@ -1,0 +1,13 @@
+# Arquivos de sistema e ambiente
+.DS_Store
+Thumbs.db
+
+# Diretórios de dependências e builds (se houver, neste caso para um site estático simples, é mais preventivo)
+node_modules/
+dist/
+build/
+.venv/
+
+# Arquivos de log e temporários
+*.log
+*.tmp

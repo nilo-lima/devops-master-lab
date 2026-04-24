@@ -1,0 +1,8 @@
+# Ignore Docker-related build artifacts
+*.dockerignore
+*.tar
+*.tmp
+# Ignore potential editor/OS specific files
+.DS_Store
+Thumbs.db
+*.log

@@ -91,9 +91,9 @@ Navegue pelos projetos do laboratório através desta estrutura organizada pelos
 <br>
 <blockquote>Entrega contínua, pipelines e automação de configuração.</blockquote>
 
-| Projeto   | Descrição                | Status | Links |
-| :-------- | :----------------------- | :----: | :---- |
-| _Planned_ | GitHub Actions Workflow. |   🕒   | -     |
+| Projeto                  | Descrição                                        | Status | Links                                                            |
+| :----------------------- | :----------------------------------------------- | :----: | :--------------------------------------------------------------- |
+| **GH Deployment Workflow** | Implantação de site estático via GitHub Actions. |   ✅   | [Repositório](https://github.com/nilo-lima/gh-deployment-workflow) |
 
 <div align="right"><a href="#-dashboard-de-projetos">⬆️ Voltar ao Topo</a></div>
 </details>
