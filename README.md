@@ -48,49 +48,6 @@ O ecossistema de ferramentas deste laboratório foi selecionado para cobrir todo
 -->
 ---
 
-<details>
-<summary>🗺️ Desafios de Projetos (Clique para Expandir)</summary>
-
-Este laboratório agrupa desafios de diversas fontes para aprimorar as habilidades práticas em DevOps e Engenharia de Plataforma. Navegue pelas seções abaixo para explorar os projetos implementados.
-
-<details>
-<summary>➡️ roadmap.sh Challenges</summary>
-
-Abaixo está uma tabela com os desafios da plataforma [roadmap.sh/projects](https://roadmap.sh/projects) implementados neste repositório:
-
-| Pilar/Categoria       | Nome do Desafio         | Link roadmap.sh                                | Projeto Local                                         |
-| :-------------------- | :---------------------- | :--------------------------------------------- | :---------------------------------------------------- |
-| 01-Foundations        | Server Stats Tool       | [Link](https://roadmap.sh/projects/server-stats) | [server-stats](./projects/01-foundations/01-server-stats) |
-| 01-Foundations        | Log Archive Tool        | [Link](https://roadmap.sh/projects/log-archive-tool) | [log-archive-tool](./projects/01-foundations/02-log-archive-tool) |
-| 01-Foundations        | Nginx Log Analyser      | [Link](https://roadmap.sh/projects/nginx-log-analyser) | [nginx-log-analyser](./projects/01-foundations/03-nginx-log-analyser) |
-
-</details>
-
-<details>
-<summary>➡️ Anton Putra Tutorials</summary>
-
-Desafios e tutoriais da coleção [antonputra/tutorials](https://github.com/antonputra/tutorials/blob/main/docs/contents.md) implementados neste repositório.
-
-</details>
-
-<details>
-<summary>➡️ DevOpsCube Projects</summary>
-
-Projetos da plataforma [devopscube.com](https://devopscube.com/tag/devops-projects/) implementados neste repositório.
-
-</details>
-
-<details>
-<summary>➡️ NotHarshhaa DevOps Projects</summary>
-
-Projetos da coleção [NotHarshhaa/DevOps-Projects](https://github.com/NotHarshhaa/DevOps-Projects) implementados neste repositório.
-
-</details>
-
-</details>
-
----
-
 ## 💖 Apoie meu trabalho
 
 Se você gosta dos meus projetos, considere:

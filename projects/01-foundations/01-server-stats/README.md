@@ -2,8 +2,6 @@
 
 Ferramenta de monitoramento leve desenvolvida em Shell Script para extração de métricas vitais de servidores Linux. Este projeto faz parte do pilar **01-Foundations**.
 
-**Link do Desafio Original:** Para mais detalhes sobre o desafio: [Server Stats Tool - roadmap.sh](https://roadmap.sh/projects/server-stats)
-
 ## 🎯 Objetivo
 O objetivo deste projeto é fornecer uma visão rápida e clara da saúde do servidor (CPU, Memória, Disco e Processos), utilizando ferramentas nativas do sistema operacional para garantir máxima portabilidade e baixo consumo de recursos.
 
