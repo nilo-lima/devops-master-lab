@@ -23,7 +23,7 @@ Navegue pelos projetos do laboratório através desta estrutura organizada pelos
 | Projeto          | Descrição                                          | Status | Links                                                    |
 | :--------------- | :------------------------------------------------- | :----: | :------------------------------------------------------- |
 | **Server Stats** | Ferramenta de coleta de métricas em Bash e Docker. |   ✅   | [Visualizar](./projects/01-foundations/01-server-stats/) |
-| _Em breve_       | Próximo desafio planejado.                         |   🕒   | -                                                        |
+| **Nginx Log Analyser** | Script para analisar logs de acesso do Nginx. | ✅ | [Visualizar](./projects/01-foundations/01-nginx-log-analyser/) |
 
 <div align="right"><a href="#-dashboard-de-projetos">⬆️ Voltar ao Topo</a></div>
 </details>

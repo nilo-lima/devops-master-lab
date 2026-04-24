@@ -1,0 +1,23 @@
+# Log files
+access.log
+error.log
+*.log
+
+# Editor/OS temporary files
+.DS_Store
+*.swp
+*~
+
+# Environment specific files
+.env
+
+# Arquivos temporários ou de build
+tmp/
+build/
+dist/
+# Logs de debug ou saída
+*.out
+*.err
+
+# Ignorar o próprio script se for um executável temporário (manter se for o script final)
+nginx-log-analyser-v1.sh
