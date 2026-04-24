@@ -9,8 +9,8 @@ Navegue pelos projetos do laboratório através desta estrutura organizada pelos
   <a href="#02-containerization"><img src="https://img.shields.io/badge/02--Containerization-623CE4?style=flat-square&logo=terraform&logoColor=white"></a>
   <a href="#03-infrastructure"><img src="https://img.shields.io/badge/03--Infrastructure-623CE4?style=flat-square&logo=terraform&logoColor=white"></a>
   <a href="#04-kubernetes"><img src="https://img.shields.io/badge/04--Kubernetes-326CE5?style=flat-square&logo=kubernetes&logoColor=white"></a>
-  <a href="#05-observability"><img src="https://img.shields.io/badge/05--Observability-E6522C?style=flat-square&logo=prometheus&logoColor=white"></a>
-  <a href="#06-automation"><img src="https://img.shields.io/badge/06--Automation-2088FF?style=flat-square&logo=github-actions&logoColor=white"></a>
+  <a href="#05-automation"><img src="https://img.shields.io/badge/05--Automation-2088FF?style=flat-square&logo=github-actions&logoColor=white"></a>
+  <a href="#06-observability"><img src="https://img.shields.io/badge/06--Observability-E6522C?style=flat-square&logo=prometheus&logoColor=white"></a>
 </div>
 
 ---
@@ -35,9 +35,9 @@ Navegue pelos projetos do laboratório através desta estrutura organizada pelos
 <br>
 <blockquote>Projetos focados em Docker, Docker Compose e conteinerização.</blockquote>
 
-| Projeto              | Descrição                            | Status | Links |
-| :------------------- | :----------------------------------- | :----: | :---- |
-| _Em desenvolvimento_ | Implementação inicial via Docker.    |   🛠️   | -     |
+| Projeto              | Descrição                            | Status | Links                                                                  |
+| :------------------- | :----------------------------------- | :----: | :--------------------------------------------------------------------- |
+| **Basic Dockerfile** | Implementação inicial de Dockerfiles. |   ✅   | [Visualizar](./projects/02-containerization/01-basic-dockerfile/)      |
 
 <div align="right"><a href="#-dashboard-de-projetos">⬆️ Voltar ao Topo</a></div>
 </details>
@@ -73,13 +73,13 @@ Navegue pelos projetos do laboratório através desta estrutura organizada pelos
 <hr>
 
 <details>
-<summary><h2 id="05-observability" style="display: inline;">📊 05. Observability</h2></summary>
+<summary><h2 id="05-automation" style="display: inline;">🤖 05. Automation (CI/CD)</h2></summary>
 <br>
-<blockquote>Monitoramento proativo, logs centralizados e gestão de incidentes.</blockquote>
+<blockquote>Entrega contínua, pipelines e automação de configuração.</blockquote>
 
-| Projeto   | Descrição                   | Status | Links |
-| :-------- | :-------------------------- | :----: | :---- |
-| _Planned_ | Prometheus & Grafana stack. |   🕒   | -     |
+| Projeto                  | Descrição                                        | Status | Links                                                            |
+| :----------------------- | :----------------------------------------------- | :----: | :--------------------------------------------------------------- |
+| **GH Deployment Workflow** | Implantação de site estático via GitHub Actions. |   ✅   | [Repositório](https://github.com/nilo-lima/gh-deployment-workflow) |
 
 <div align="right"><a href="#-dashboard-de-projetos">⬆️ Voltar ao Topo</a></div>
 </details>
@@ -87,13 +87,13 @@ Navegue pelos projetos do laboratório através desta estrutura organizada pelos
 <hr>
 
 <details>
-<summary><h2 id="06-automation" style="display: inline;">🤖 06. Automation (CI/CD)</h2></summary>
+<summary><h2 id="06-observability" style="display: inline;">📊 06. Observability</h2></summary>
 <br>
-<blockquote>Entrega contínua, pipelines e automação de configuração.</blockquote>
+<blockquote>Monitoramento proativo, logs centralizados e gestão de incidentes.</blockquote>
 
-| Projeto                  | Descrição                                        | Status | Links                                                            |
-| :----------------------- | :----------------------------------------------- | :----: | :--------------------------------------------------------------- |
-| **GH Deployment Workflow** | Implantação de site estático via GitHub Actions. |   ✅   | [Repositório](https://github.com/nilo-lima/gh-deployment-workflow) |
+| Projeto   | Descrição                   | Status | Links |
+| :-------- | :-------------------------- | :----: | :---- |
+| _Planned_ | Prometheus & Grafana stack. |   🕒   | -     |
 
 <div align="right"><a href="#-dashboard-de-projetos">⬆️ Voltar ao Topo</a></div>
 </details>
