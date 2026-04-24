@@ -1,0 +1,7 @@
+[sshd]
+enabled = true
+port = 2222
+filter = sshd
+logpath = /var/log/auth.log
+maxretry = 3
+bantime = 1h

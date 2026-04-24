@@ -1,0 +1,26 @@
+# Ignorar arquivos de chaves SSH privadas
+*.key
+*.pem
+id_rsa
+id_ecdsa
+id_ed25519
+
+# Arquivos de log gerados pelo servidor ou fail2ban
+*.log
+fail2ban.log
+
+# Arquivos temporários e de build
+*.tmp
+*.bak
+
+# Diretórios de ambiente virtual (se Python for usado para scripts auxiliares)
+.venv/
+venv/
+
+# Ignorar o diretório .ssh se for criado localmente para o projeto (embora ~./ssh seja o padrão)
+.ssh/
+
+# Docker
+*.dockerignore
+*.env
+docker-compose.override.yml

@@ -38,6 +38,7 @@ Navegue pelos projetos do laboratório através desta estrutura organizada pelos
 | Projeto              | Descrição                            | Status | Links                                                                  |
 | :------------------- | :----------------------------------- | :----: | :--------------------------------------------------------------------- |
 | **Basic Dockerfile** | Implementação inicial de Dockerfiles. |   ✅   | [Visualizar](./projects/02-containerization/01-basic-dockerfile/)      |
+| **Servidor SSH com Fail2Ban** | Configuração de SSH seguro com Fail2Ban em Docker. |   ✅   | [README](./projects/02-containerization/02-ssh-server-docker/README.md) |
 
 <div align="right"><a href="#-dashboard-de-projetos">⬆️ Voltar ao Topo</a></div>
 </details>
