@@ -1,0 +1,12 @@
+services:
+  static-site-server:
+    build: .
+    container_name: static-site-server
+    ports:
+      - "80:80"    # Mapeia a porta 80 do host para a porta 80 do container (Nginx)
+      - "2222:22"  # Mapeia a porta 2222 do host para a porta 22 do container (SSH)
+    #volumes:
+    #  - ./app:/var/www/html # Opcional: Para desenvolvimento, montar o diretório do site
+    # A linha acima está comentada pois o deployment via rsync será o método principal para este projeto.
+    # Se você quiser testar as mudanças rapidamente sem o rsync durante o desenvolvimento,
+    # pode descomentar a linha acima e remover o 'nginx -s reload' do deploy.sh.

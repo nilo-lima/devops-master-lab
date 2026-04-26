@@ -1,0 +1,22 @@
+# Ignore Docker-related files
+Dockerfile.bak
+*.log
+*.tmp
+.env
+docker-compose.override.yml
+# Ignore sensitive files (like SSH keys if generated inside the project for testing)
+*.pem
+*.key
+id_rsa_static_server* # Chaves SSH geradas localmente
+
+# Ignore editor/IDE files
+.vscode/
+.idea/
+
+# Ignore local build artifacts or temporary directories
+build/
+dist/
+
+# Ignore Vagrant files if any
+.vagrant/
+Vagrantfile.local
