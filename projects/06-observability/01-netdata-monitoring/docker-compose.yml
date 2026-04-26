@@ -1,0 +1,27 @@
+
+services:
+  netdata:
+    build: .
+    container_name: netdata-agent
+    hostname: ${HOSTNAME:-netdata-host} # Usa o nome do host do sistema ou 'netdata-host'
+    ports:
+      - "19999:19999" # Mapeia a porta do contêiner para a porta do host
+    cap_add:
+      - SYS_PTRACE # Necessário para coletar algumas métricas de processos
+      - NET_ADMIN  # Necessário para coletar métricas de rede
+    security_opt:
+      - apparmor:unconfined # Desabilita o AppArmor para permitir acesso total ao sistema
+    volumes:
+      - /proc:/host/proc:ro # Monta /proc do host para acesso a informações de processos
+      - /sys:/host/sys:ro   # Monta /sys do host para acesso a informações do sistema
+      - /var/run/docker.sock:/var/run/docker.sock:ro # Permite monitorar o próprio Docker
+      - netdataconfig:/etc/netdata # Persiste configurações do Netdata
+      - netdatalib:/var/lib/netdata  # Persiste dados do Netdata
+      - netdatacache:/var/cache/netdata # Persiste cache do Netdata
+    restart: unless-stopped # Garante que o contêiner reinicie automaticamente
+    environment:
+      - NETDATA_AGENT_ENABLE_DOCKER_PLUGIN=yes # Habilita o plugin do Docker para Netdata
+volumes:
+  netdataconfig:
+  netdatalib:
+  netdatacache:

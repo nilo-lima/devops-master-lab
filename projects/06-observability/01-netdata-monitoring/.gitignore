@@ -1,0 +1,11 @@
+Netdata specific ignores
+netdata.conf
+health_alarm_notify.conf
+*.cache
+*.db
+*.log
+
+# Docker specific ignores
+Dockerfile.bak
+docker-compose.override.yml
+*.env

@@ -93,9 +93,9 @@ Navegue pelos projetos do laboratório através desta estrutura organizada pelos
 <br>
 <blockquote>Monitoramento proativo, logs centralizados e gestão de incidentes.</blockquote>
 
-| Projeto   | Descrição                   | Status | Links |
-| :-------- | :-------------------------- | :----: | :---- |
-| _Planned_ | Prometheus & Grafana stack. |   🕒   | -     |
+| Projeto          | Descrição                                        | Status | Links                                                                  |
+| :--------------- | :----------------------------------------------- | :----: | :--------------------------------------------------------------------- |
+| **Netdata Monitoring** | Dashboard de monitoramento em tempo real com Docker. |   ✅   | [Visualizar](./projects/06-observability/01-netdata-monitoring/)       |
 
 <div align="right"><a href="#-dashboard-de-projetos">⬆️ Voltar ao Topo</a></div>
 </details>
