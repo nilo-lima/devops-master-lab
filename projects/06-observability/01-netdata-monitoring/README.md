@@ -42,7 +42,7 @@ graph TD
     E --> F[Métricas do Sistema: CPU, Memória, Disco I/O]
 
     subgraph Scripts de Automação
-        G[setup.sh] --> D
+        G[setup_netdata.sh] --> D
         H[test_dashboard.sh] --> E
         I[cleanup.sh] --> D
     end
@@ -68,11 +68,11 @@ cd DevOps_Master_Lab/projects/06-observability/01-netdata-monitoring
 
 ### 2. Configuração Inicial e Início do Netdata
 
-Navegue até o diretório do projeto e execute o script de `setup.sh`:
+Navegue até o diretório do projeto e execute o script de `setup_netdata.sh`:
 
 ```bash
 cd projects/06-observability/01-netdata-monitoring/
-./setup.sh
+./setup_netdata.sh
 ```
 
 Este script irá:
@@ -82,7 +82,7 @@ Este script irá:
 
 ### 3. Acessar o Dashboard do Netdata
 
-Após a execução bem-sucedida do `setup.sh`, abra seu navegador e acesse:
+Após a execução bem-sucedida do `setup_netdata.sh`, abra seu navegador e acesse:
 
 ```
 http://localhost:19999
@@ -119,7 +119,7 @@ Este script perguntará se você deseja remover os volumes persistidos e a image
 
 *   `Dockerfile`: Define a imagem Docker do Netdata.
 *   `docker-compose.yml`: Orquestra o contêiner Netdata com volumes e capacidades necessárias.
-*   `setup.sh`: Script para construir a imagem e iniciar o serviço Netdata.
+*   `setup_netdata.sh`: Script para construir a imagem e iniciar o serviço Netdata.
 *   `test_dashboard.sh`: Script para simular carga de CPU e testar o sistema de alertas.
 *   `cleanup.sh`: Script para parar e remover o ambiente Netdata.
 *   `.gitignore`: Regras para ignorar arquivos e diretórios desnecessários no controle de versão.
