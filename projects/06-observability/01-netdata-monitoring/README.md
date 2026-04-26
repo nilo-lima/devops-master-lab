@@ -38,7 +38,7 @@ graph TD
     A[Usuário] --> B(Navegador Web)
     B --> C(Netdata Dashboard)
     C --> D[Contêiner Docker Netdata]
-    D --> E[Host Linux (VM Vagrant ou Sistema Local)]
+    D --> E[Host Linux VM Vagrant ou Sistema Local]
     E --> F[Métricas do Sistema: CPU, Memória, Disco I/O]
 
     subgraph Scripts de Automação
