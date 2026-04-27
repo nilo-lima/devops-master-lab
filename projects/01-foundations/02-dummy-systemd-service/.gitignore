@@ -1,0 +1,6 @@
+# Logs
+*.log
+/var/log/dummy-service.log
+
+# Temporary files
+*.tmp

@@ -24,6 +24,7 @@ Navegue pelos projetos do laboratório através desta estrutura organizada pelos
 | :--------------- | :------------------------------------------------- | :----: | :------------------------------------------------------- |
 | **Server Stats** | Ferramenta de coleta de métricas em Bash e Docker. |   ✅   | [Visualizar](./projects/01-foundations/01-server-stats/) |
 | **Nginx Log Analyser** | Script para analisar logs de acesso do Nginx. | ✅ | [Visualizar](./projects/01-foundations/01-nginx-log-analyser/) |
+| **Serviço Systemd Fictício** | Exemplo prático de serviço systemd com Dockerização. | ✅ | [Visualizar](./projects/01-foundations/02-dummy-systemd-service/) |
 
 <div align="right"><a href="#-dashboard-de-projetos">⬆️ Voltar ao Topo</a></div>
 </details>

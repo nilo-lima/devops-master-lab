@@ -1,0 +1,13 @@
+services:
+  dummy-service:
+    build: .
+    container_name: dummy-service-container
+    restart: always # Garante que o contêiner reinicie se parar
+    volumes:
+      # Exemplo de volume para persistência de dados do app, se necessário.
+      # Neste projeto, os logs primários irão para stdout/stderr do contêiner.
+      - dummy-service-data:/app
+
+# Definição de volumes nomeados
+volumes:
+  dummy-service-data: {}

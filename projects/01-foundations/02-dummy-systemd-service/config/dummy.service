@@ -1,0 +1,13 @@
+[Unit]
+Description=Dummy Service for DevOps Master Lab
+After=network.target
+
+[Service]
+ExecStart=/vagrant/projects/01-foundations/02-dummy-systemd-service/app/dummy.sh
+Restart=always
+Type=simple
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
