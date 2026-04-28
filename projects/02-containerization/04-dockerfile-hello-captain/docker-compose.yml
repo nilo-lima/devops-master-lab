@@ -1,0 +1,10 @@
+services:
+  hello-captain-app:
+    build:
+      context: .
+      args:
+        USER_NAME: "DevOps Mentor" # Exemplo: O nome que será passado para o Dockerfile
+    image: hello-captain:latest # Usaremos a mesma tag para atualizar a imagem existente
+    container_name: hello-captain-container
+    # O comando é executado e o container encerra após a execução
+    # Não há necessidade de ports ou volumes para esta aplicação simples
