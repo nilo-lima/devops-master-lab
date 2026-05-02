@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main # O workflow será acionado em pushes para a branch main
+    paths: # <--- FILTRO DE CAMINHO ADICIONADO AQUI!
+      - 'projects/03-infrastructure/01-aws-ec2-static-site/**' # Aciona apenas se houver mudanças dentro deste diretório
+      - '.github/workflows/deploy.yml' # Também aciona se o próprio arquivo de workflow for modificado
 
 jobs:
   deploy:
@@ -42,6 +45,7 @@ jobs:
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+     }
 
     - name: Deploy to EC2
       run: |
