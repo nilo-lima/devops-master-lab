@@ -1,3 +1,5 @@
+`aws` `ec2` `linux` `devops`
+
 # 🚀 Projeto: AWS EC2 Instance com Site Estático Dockerizado
 
 Este projeto demonstra o provisionamento de uma instância EC2 na AWS usando Terraform e a implantação de um site estático simples servido por Nginx em um contêiner Docker. O acesso à instância é configurado via SSH e, para maior segurança e gerenciamento, via AWS Systems Manager (SSM).
@@ -211,4 +213,4 @@ Distribuído sob a licença **Apache 2.0**. Esta licença oferece permissão par
 
 ---
 
-This project is part of [roadmap.sh](https://roadmap.sh/devops) DevOps projects.
+This project is part of [roadmap.sh](https://roadmap.sh/projects/ec2-instance) DevOps projects.
