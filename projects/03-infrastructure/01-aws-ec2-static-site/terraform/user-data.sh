@@ -20,6 +20,8 @@ sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 mkdir -p /home/ubuntu/static-site/app
 cd /home/ubuntu/static-site
 
+sudo chown -R ubuntu:ubuntu /home/ubuntu/static-site
+
 # Cria o index.html dentro do novo diretório de conteúdo
 cat <<EOF > app/index.html
 <!DOCTYPE html>
