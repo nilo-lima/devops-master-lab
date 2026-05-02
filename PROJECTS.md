@@ -53,9 +53,9 @@ Navegue pelos projetos do laboratório através desta estrutura organizada pelos
 <br>
 <blockquote>Projetos focados em Infraestrutura como Código (IaC) e arquitetura em Cloud.</blockquote>
 
-| Projeto              | Descrição                            | Status | Links |
-| :------------------- | :----------------------------------- | :----: | :---- |
-| _Em desenvolvimento_ | Implementação inicial via Terraform. |   🛠️   | -     |
+| Projeto                       | Descrição                                                     | Status | Links                                                                                                      |
+| :---------------------------- | :------------------------------------------------------------ | :----: | :--------------------------------------------------------------------------------------------------------- |
+| **AWS EC2 Static Site**       | Provisionamento de EC2 com site estático dockerizado via Terraform e SSM. |   ✅   | [Visualizar](./projects/03-infrastructure/01-aws-ec2-static-site/README.md) |
 
 <div align="right"><a href="#-dashboard-de-projetos">⬆️ Voltar ao Topo</a></div>
 </details>

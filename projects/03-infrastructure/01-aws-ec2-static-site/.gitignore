@@ -1,0 +1,25 @@
+# Terraform
+.terraform/
+.terraform.lock.hcl
+*.tfplan
+*.tfstate
+*.tfstate.backup
+crash.log
+terraform.tfstate
+terraform.tfstate.backup
+.terraform.tfstate.lock.info
+*.tfvars
+.terraformrc
+
+# Docker
+*.log
+*.tmp
+.env
+
+# MacOS
+.DS_Store
+
+# IDEs
+.vscode/
+*.iml
+.idea/

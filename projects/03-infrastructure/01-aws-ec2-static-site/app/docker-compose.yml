@@ -1,0 +1,9 @@
+services:
+  web:
+    build: .
+    ports:
+      - "80:80"
+    restart: always
+    container_name: static-site-nginx
+    volumes:
+      - ./app/index.html:/usr/share/nginx/html/index.html # Monta o arquivo index.html
