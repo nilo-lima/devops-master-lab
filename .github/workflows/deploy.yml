@@ -21,9 +21,14 @@ jobs:
       with:
         ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }} # Usa a chave privada que você armazenou no GitHub Secrets
 
-    - name: Install AWS CLI (if not present)
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x' # Garante que uma versão recente do Python esteja disponível
+
+    - name: Install AWS CLI
       run: |
-        sudo apt-get update && sudo apt-get install -y awscli
+        pip install awscli # Instala o AWS CLI via pip
 
     - name: Get EC2 Instance Public IP
       id: get_ip
