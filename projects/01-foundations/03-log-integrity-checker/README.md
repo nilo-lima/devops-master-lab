@@ -62,7 +62,7 @@ graph TD
 ### 1. Clone e navegue até o projeto
 
 ```bash
-git clone <url-do-repositorio>
+git clone https://github.com/nilo-lima/devops-master-lab
 cd DevOps_Master_Lab/projects/01-foundations/03-log-integrity-checker
 ```
 
