@@ -1,0 +1,47 @@
+# --- Dependências ---
+.venv/
+node_modules/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+target/
+
+# --- Ambiente & Secrets ---
+.env
+.env.*
+secrets.yaml
+*.pem
+*.key
+*.p12
+*.pfx
+
+# --- Dados sensíveis ---
+*.sqlite
+*.db
+hash_store/
+*.hash
+
+# --- Virtualização ---
+.vagrant/
+*.box
+Vagrantfile.local
+
+# --- Sistema & Temp ---
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.swp
+*.bak
+
+# --- IaC state ---
+*.tfstate
+*.tfstate.backup
+.terraform/
+
+# Hash store (runtime — nao versionar)
+config/hashes.json
+
+# Permitir logs de demonstracao
+!logs/*.log

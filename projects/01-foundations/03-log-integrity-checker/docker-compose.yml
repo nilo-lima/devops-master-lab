@@ -1,0 +1,7 @@
+services:
+  log-integrity-checker:
+    build: .
+    volumes:
+      - ./logs:/logs:ro
+      - ./config:/app/config
+    working_dir: /app
