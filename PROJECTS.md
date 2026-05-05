@@ -43,6 +43,7 @@ Navegue pelos projetos do laboratório através desta estrutura organizada pelos
 | **Servidor SSH com Fail2Ban** | Configuração de SSH seguro com Fail2Ban em Docker. | ✅ | [README](./projects/02-containerization/02-ssh-server-docker/README.md) |
 | **Servidor de Site Estático** | Nginx, Docker e Rsync para hospedar e implantar sites estáticos. | ✅ | [README](./projects/02-containerization/03-static-site-server/README.md) |
 | **Dockerfile Básico e Avançado** | Implementação de Dockerfile com personalização. | ✅ | [Visualizar](./projects/02-containerization/04-dockerfile-hello-captain/) |
+| **Pomodoro Timer** | SPA React dockerizada com multi-stage build e deploy automatizado no GitHub Pages. | ✅ | [README](./projects/02-containerization/05-pomodoro-timer/README.md) |
 
 <div align="right"><a href="#-dashboard-de-projetos">⬆️ Voltar ao Topo</a></div>
 </details>
