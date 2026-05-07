@@ -1,0 +1,7 @@
+---
+- name: Adicionar chave pública SSH ao usuário autorizado
+  ansible.posix.authorized_key:
+    user: "{{ ssh_target_user }}"
+    state: present
+    key: "{{ ssh_public_key_content }}"
+  when: ssh_public_key_content | length > 0

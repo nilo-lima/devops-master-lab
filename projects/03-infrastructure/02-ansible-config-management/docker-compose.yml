@@ -1,0 +1,36 @@
+services:
+  target:
+    build:
+      context: ./docker/target-server
+    container_name: ansible-target
+    hostname: target
+    ports:
+      - "8080:80"
+    volumes:
+      - ./docker/keys/id_ed25519.pub:/tmp/pub_key:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pgrep sshd > /dev/null"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 5s
+    networks:
+      - ansible-net
+
+  controller:
+    build:
+      context: ./docker/ansible-controller
+    container_name: ansible-controller
+    volumes:
+      - ./ansible:/ansible
+      - ./docker/keys/id_ed25519:/root/.ssh/id_ed25519:ro
+    depends_on:
+      target:
+        condition: service_healthy
+    networks:
+      - ansible-net
+    command: sleep infinity
+
+networks:
+  ansible-net:
+    driver: bridge

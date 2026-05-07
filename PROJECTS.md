@@ -58,6 +58,7 @@ Navegue pelos projetos do laboratório através desta estrutura organizada pelos
 | Projeto                       | Descrição                                                     | Status | Links                                                                                                      |
 | :---------------------------- | :------------------------------------------------------------ | :----: | :--------------------------------------------------------------------------------------------------------- |
 | **AWS EC2 Static Site**       | Provisionamento de EC2 com site estático dockerizado via Terraform e SSM. |   ✅   | [Visualizar](./projects/03-infrastructure/01-aws-ec2-static-site/README.md) |
+| **Ansible Configuration Management** | 4 roles Ansible modulares (base, nginx, app, ssh) com ambiente Docker reprodutível. | ✅ | [README](./projects/03-infrastructure/02-ansible-config-management/README.md) |
 
 <div align="right"><a href="#-dashboard-de-projetos">⬆️ Voltar ao Topo</a></div>
 </details>

@@ -1,0 +1,6 @@
+---
+# CONFIGURE: substitua pela URL do seu repositório de site estático público
+app_github_repo: "https://github.com/nilo-lima/ansible-demo-site"
+app_branch: "main"
+app_clone_path: /opt/app
+app_web_root: /var/www/html

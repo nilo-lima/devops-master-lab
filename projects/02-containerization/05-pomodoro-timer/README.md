@@ -159,6 +159,22 @@ URL de produção: `https://<seu-usuario>.github.io/DevOps_Master_Lab/pomodoro/`
 
 ---
 
+## 💖 Apoie este Projeto Open Source
+
+Se você gosta dos meus projetos, considere:
+- 🏆 Me indicar para o GitHub Stars [Indicar Aqui](https://stars.github.com/nominate/)
+- ⭐ Dar uma estrela nos repositórios
+- 🐛 Reportar bugs ou melhorias
+- 🤝 Contribuir com código
+
+---
+
+## ⚖️ Licença
+
+Distribuído sob a licença **Apache 2.0**. Esta licença oferece permissão para uso, modificação e distribuição, além de garantir proteção contra disputas de patentes para colaboradores e usuários. Veja o arquivo [LICENSE](LICENSE) para mais informações.
+
+---
+
 <div align="center">
   <sub>
     Projeto desenvolvido como parte do

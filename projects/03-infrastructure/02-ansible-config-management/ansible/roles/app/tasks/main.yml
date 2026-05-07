@@ -1,0 +1,37 @@
+---
+- name: Garantir que git está instalado
+  ansible.builtin.apt:
+    name: git
+    state: present
+
+- name: Configurar git safe.directory para o diretório de deploy
+  ansible.builtin.command:
+    cmd: git config --global --add safe.directory {{ app_clone_path }}
+  changed_when: false
+
+- name: Clonar ou atualizar repositório da aplicação via GitHub
+  ansible.builtin.git:
+    repo: "{{ app_github_repo }}"
+    dest: "{{ app_clone_path }}"
+    version: "{{ app_branch }}"
+    force: true
+    update: true
+
+- name: Ajustar permissões no diretório clonado
+  ansible.builtin.file:
+    path: "{{ app_clone_path }}"
+    owner: www-data
+    group: www-data
+    recurse: true
+
+- name: Remover web root padrão do Nginx (será substituído por symlink)
+  ansible.builtin.file:
+    path: "{{ app_web_root }}"
+    state: absent
+
+- name: Criar symlink do web root para o app implantado
+  ansible.builtin.file:
+    src: "{{ app_clone_path }}"
+    dest: "{{ app_web_root }}"
+    state: link
+  notify: Reload Nginx

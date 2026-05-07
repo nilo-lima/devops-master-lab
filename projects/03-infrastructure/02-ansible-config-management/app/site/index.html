@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ansible Config Lab — DevOps Master Lab</title>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: #0d1117;
+            color: #c9d1d9;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 3rem 2.5rem;
+            max-width: 560px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: #1f6feb22;
+            border: 1px solid #1f6feb66;
+            color: #58a6ff;
+            padding: 0.3rem 0.9rem;
+            border-radius: 2rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #f0f6fc;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            color: #8b949e;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .divider {
+            height: 1px;
+            background: #30363d;
+            margin: 1.5rem 0;
+        }
+
+        .roles {
+            display: grid;
+            gap: 0.6rem;
+            text-align: left;
+            margin-bottom: 1.5rem;
+        }
+
+        .role {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: #0d1117;
+            border: 1px solid #21262d;
+            border-radius: 8px;
+            padding: 0.65rem 1rem;
+        }
+
+        .role .icon { font-size: 1.1rem; }
+        .role .name { font-family: monospace; color: #58a6ff; font-size: 0.85rem; min-width: 55px; }
+        .role .desc { color: #8b949e; font-size: 0.82rem; flex: 1; }
+        .role .status { color: #3fb950; }
+
+        .stack {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: #21262d;
+            border: 1px solid #30363d;
+            color: #8b949e;
+            padding: 0.25rem 0.65rem;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 0.78rem;
+        }
+
+        .footer {
+            margin-top: 1.5rem;
+            font-size: 0.75rem;
+            color: #484f58;
+        }
+
+        .footer a { color: #58a6ff; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="badge">🤖 Deployed by Ansible</div>
+        <h1>🔧 Config Lab</h1>
+        <p class="subtitle">
+            Site estático implantado automaticamente via playbook Ansible.<br>
+            Servidor configurado do zero com 4 roles modulares.
+        </p>
+        <div class="divider"></div>
+        <div class="roles">
+            <div class="role">
+                <span class="icon">🔧</span>
+                <span class="name">base</span>
+                <span class="desc">Sistema atualizado + fail2ban instalado</span>
+                <span class="status">✅</span>
+            </div>
+            <div class="role">
+                <span class="icon">🌐</span>
+                <span class="name">nginx</span>
+                <span class="desc">Servidor web configurado via template Jinja2</span>
+                <span class="status">✅</span>
+            </div>
+            <div class="role">
+                <span class="icon">📦</span>
+                <span class="name">app</span>
+                <span class="desc">Deploy via git clone do GitHub</span>
+                <span class="status">✅</span>
+            </div>
+            <div class="role">
+                <span class="icon">🔐</span>
+                <span class="name">ssh</span>
+                <span class="desc">Chave pública adicionada ao authorized_keys</span>
+                <span class="status">✅</span>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div class="stack">
+            <span class="tag">ansible 9.x</span>
+            <span class="tag">nginx</span>
+            <span class="tag">fail2ban</span>
+            <span class="tag">docker</span>
+            <span class="tag">debian 12</span>
+        </div>
+        <div class="footer">
+            <a href="https://github.com/nilo-lima/DevOps_Master_Lab">DevOps Master Lab</a>
+            &nbsp;·&nbsp; Pilar 03 — Infrastructure
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+# Chaves SSH efêmeras — NUNCA versionar
+docker/keys/
+
+# Cache e retry do Ansible
+*.retry
+.ansible_cache/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Sistema
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
