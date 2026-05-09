@@ -6,12 +6,12 @@ Este projeto guia a configuração de um servidor web básico para hospedar um s
 
 ### 🎯 Objetivos de Aprendizado
 
-*   **Containerização:** Criar e configurar um servidor Linux dentro de um container Docker.
-*   **Acesso Seguro:** Estabelecer e gerenciar conectividade SSH com o container.
-*   **Web Serving:** Instalar e configurar Nginx para servir conteúdo estático.
-*   **Conteúdo:** Criar uma página web simples com HTML, CSS e um arquivo de imagem local.
-*   **Deployment Automatizado:** Utilizar Rsync para sincronizar arquivos do site estático para o servidor e um script `deploy.sh` para automatizar o processo.
-*   **Configuração Nginx:** Configurar o Nginx para servir o site estático a partir do endereço IP do servidor.
+- **Containerização:** Criar e configurar um servidor Linux dentro de um container Docker.
+- **Acesso Seguro:** Estabelecer e gerenciar conectividade SSH com o container.
+- **Web Serving:** Instalar e configurar Nginx para servir conteúdo estático.
+- **Conteúdo:** Criar uma página web simples com HTML, CSS e um arquivo de imagem local.
+- **Deployment Automatizado:** Utilizar Rsync para sincronizar arquivos do site estático para o servidor e um script `deploy.sh` para automatizar o processo.
+- **Configuração Nginx:** Configurar o Nginx para servir o site estático a partir do endereço IP do servidor.
 
 ## 🏛️ Arquitetura Proposta
 
@@ -19,47 +19,45 @@ O diagrama a seguir ilustra a arquitetura do projeto, mostrando a interação en
 
 ```mermaid
 graph TD
-    A[Usuário Local (Máquina Host)] -->|Desenvolve Site Estático & Script deploy.sh| B(Docker Engine no Host)
-    B -->|Cria e Gerencia Container| C[Container Docker (Servidor Linux)]
-    C -->|Mapeamento de Portas (22 p/ SSH, 80 p/ HTTP)| B
-    C -->|Instala Nginx & Configura| D[Servidor Nginx]
-    D -->|Serve Conteúdo de| E[Arquivos do Site Estático (HTML, CSS, Imagens)]
-    A -->|Rsync via SSH (acionado por deploy.sh)| C
-    F[Navegador Cliente] -->|Requisição HTTP (Host IP:80)| B
-    B -->|Mapeamento de Porta| C
-    C -->|Servido por Nginx| E
+    A[Usuário Local] -->|deploy.sh - rsync via SSH| C
+    B[Docker Engine] -->|cria e gerencia| C[Container Linux]
+    C -->|portas 22 e 80| B
+    C -->|instala e configura| D[Nginx]
+    D -->|serve arquivos de| E[Site Estático HTML CSS]
+    F[Navegador Cliente] -->|HTTP porta 80| B
+    B -->|port mapping| C
 ```
 
 ## 🧠 Justificativa das Decisões Técnicas
 
 1.  **Docker Container para o Servidor Linux:**
-    *   **Porquê:** Proporciona um ambiente leve, isolado e consistente para o servidor web. Isso garante que o projeto seja reprodutível em qualquer máquina com Docker, minimizando problemas de "funciona na minha máquina". Facilita a gestão de dependências e a configuração do ambiente, alinhando-se com as práticas modernas de desenvolvimento e operações.
-    *   **Benefício de Aprendizado:** Demonstra o poder da containerização para encapsular aplicações e seus ambientes, um conceito fundamental em DevOps.
+    - **Porquê:** Proporciona um ambiente leve, isolado e consistente para o servidor web. Isso garante que o projeto seja reprodutível em qualquer máquina com Docker, minimizando problemas de "funciona na minha máquina". Facilita a gestão de dependências e a configuração do ambiente, alinhando-se com as práticas modernas de desenvolvimento e operações.
+    - **Benefício de Aprendizado:** Demonstra o poder da containerização para encapsular aplicações e seus ambientes, um conceito fundamental em DevOps.
 2.  **Nginx como Servidor Web:**
-    *   **Porquê:** Escolhido por sua eficiência, alta performance e baixa utilização de recursos, o Nginx é uma excelente opção para servir conteúdo estático. É amplamente utilizado na indústria e sua configuração é relativamente simples para casos de uso básicos.
-    *   **Benefício de Aprendizado:** Permite ao usuário aprender sobre as configurações essenciais de um servidor web, como `server blocks` e roteamento de requisições.
+    - **Porquê:** Escolhido por sua eficiência, alta performance e baixa utilização de recursos, o Nginx é uma excelente opção para servir conteúdo estático. É amplamente utilizado na indústria e sua configuração é relativamente simples para casos de uso básicos.
+    - **Benefício de Aprendizado:** Permite ao usuário aprender sobre as configurações essenciais de um servidor web, como `server blocks` e roteamento de requisições.
 3.  **SSH para Acesso Remoto e Rsync:**
-    *   **Porquê:** O SSH (Secure Shell) é o protocolo padrão para acesso seguro a máquinas remotas, essencial para gerenciamento e automação. O Rsync é uma ferramenta robusta para sincronização de arquivos, ideal para deployments incrementais de sites estáticos, pois transfere apenas as diferenças entre os arquivos, tornando o processo rápido e eficiente.
-    *   **Benefício de Aprendizado:** Reforça a importância da segurança no acesso remoto e introduz uma ferramenta poderosa para gerenciamento de arquivos em deployments.
+    - **Porquê:** O SSH (Secure Shell) é o protocolo padrão para acesso seguro a máquinas remotas, essencial para gerenciamento e automação. O Rsync é uma ferramenta robusta para sincronização de arquivos, ideal para deployments incrementais de sites estáticos, pois transfere apenas as diferenças entre os arquivos, tornando o processo rápido e eficiente.
+    - **Benefício de Aprendizado:** Reforça a importância da segurança no acesso remoto e introduz uma ferramenta poderosa para gerenciamento de arquivos em deployments.
 4.  **Script `deploy.sh`:**
-    *   **Porquê:** Centraliza e automatiza o processo de deployment. Um script shell simples garante que a sincronização seja executada de forma consistente, reduzindo a chance de erros manuais e padronizando o fluxo de trabalho.
-    *   **Benefício de Aprendizado:** Introduz o conceito de automação via scripting, uma habilidade crucial para otimizar operações repetitivas em DevOps.
+    - **Porquê:** Centraliza e automatiza o processo de deployment. Um script shell simples garante que a sincronização seja executada de forma consistente, reduzindo a chance de erros manuais e padronizando o fluxo de trabalho.
+    - **Benefício de Aprendizado:** Introduz o conceito de automação via scripting, uma habilidade crucial para otimizar operações repetitivas em DevOps.
 5.  **Site Estático Básico (HTML, CSS, Imagens):**
-    *   **Porquê:** Mantém o foco do projeto na infraestrutura e no processo de deployment, sem a complexidade adicional de linguagens de backend, frameworks ou bancos de dados.
-    *   **Benefício de Aprendizado:** Permite ao usuário concentrar-se nas ferramentas e conceitos de DevOps, em vez da lógica da aplicação web.
+    - **Porquê:** Mantém o foco do projeto na infraestrutura e no processo de deployment, sem a complexidade adicional de linguagens de backend, frameworks ou bancos de dados.
+    - **Benefício de Aprendizado:** Permite ao usuário concentrar-se nas ferramentas e conceitos de DevOps, em vez da lógica da aplicação web.
 
 ## 🛠️ Pré-requisitos
 
-*   Docker e Docker Compose instalados na sua máquina local.
-*   Conhecimento básico de linha de comando Linux.
-*   Um editor de texto ou IDE de sua preferência.
+- Docker e Docker Compose instalados na sua máquina local.
+- Conhecimento básico de linha de comando Linux.
+- Um editor de texto ou IDE de sua preferência.
 
 ## 🚀 Como Executar o Projeto
 
 1.  **Clone o Repositório:** (Se ainda não o fez)
 
     ```bash
-    git clone <URL_DO_SEU_REPOSITORIO>
+    git clone https://github.com/nilo-lima/DevOps_Master_Lab.git
     cd DevOps_Master_Lab/projects/02-containerization/03-static-site-server
     ```
 
@@ -76,22 +74,22 @@ graph TD
     ```
 
 4.  **Gere Chaves SSH (Se ainda não as tem):**
-    *   Na sua máquina local, gere um par de chaves SSH. Deixe a passphrase em branco para simplificar este exercício, mas **use uma passphrase forte em produção**.
+    - Na sua máquina local, gere um par de chaves SSH. Deixe a passphrase em branco para simplificar este exercício, mas **use uma passphrase forte em produção**.
 
     ```bash
     ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa_static_server -C "static_site_server_key"
     ```
 
 5.  **Adicione a Chave Pública ao Dockerfile:**
-    *   Abra `Dockerfile` e localize a linha que contém `GENERATED_PUBLIC_SSH_KEY_HERE`.
-    *   Substitua `GENERATED_PUBLIC_SSH_KEY_HERE` pelo conteúdo da sua chave pública (`~/.ssh/id_rsa_static_server.pub`).
+    - Abra `Dockerfile` e localize a linha que contém `GENERATED_PUBLIC_SSH_KEY_HERE`.
+    - Substitua `GENERATED_PUBLIC_SSH_KEY_HERE` pelo conteúdo da sua chave pública (`~/.ssh/id_rsa_static_server.pub`).
 
     ```bash
     cat ~/.ssh/id_rsa_static_server.pub
     # Copie a saída e cole no Dockerfile.
     ```
 
-    *   **Reconstrua a Imagem (após adicionar a chave pública):**
+    - **Reconstrua a Imagem (após adicionar a chave pública):**
 
     ```bash
     docker compose build
@@ -99,8 +97,8 @@ graph TD
     ```
 
 6.  **Execute o Script de Deployment:**
-    *   Certifique-se de que o caminho da chave SSH no `deploy.sh` está correto (ex: `/home/administrador/.ssh/id_rsa_static_server`).
-    *   Torne o script executável e execute-o:
+    - Certifique-se de que o caminho da chave SSH no `deploy.sh` está correto (ex: `/home/administrador/.ssh/id_rsa_static_server`).
+    - Torne o script executável e execute-o:
 
     ```bash
     chmod +x deploy.sh
@@ -108,7 +106,7 @@ graph TD
     ```
 
 7.  **Acesse o Site:**
-    *   Abra seu navegador e acesse `http://localhost/`.
+    - Abra seu navegador e acesse `http://localhost/`.
 
 ## 🧹 Limpeza
 
@@ -121,6 +119,7 @@ docker compose down
 ## 💖 Apoie este Projeto Open Source
 
 Se você gosta dos meus projetos, considere:
+
 - 🏆 Me indicar para o GitHub Stars [Indicar Aqui](https://stars.github.com/nominate/)
 - ⭐ Dar uma estrela nos repositórios
 - 🐛 Reportar bugs ou melhorias

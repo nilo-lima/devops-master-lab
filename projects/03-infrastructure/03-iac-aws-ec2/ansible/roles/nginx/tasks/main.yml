@@ -1,0 +1,34 @@
+---
+  - name: Instalar Nginx
+    ansible.builtin.apt:
+      name: nginx
+      state: present
+      update_cache: true
+
+  - name: Garantir que Nginx está ativo e habilitado no boot
+    ansible.builtin.service:
+      name: nginx
+      state: started
+      enabled: true
+
+  - name: Remover configuração default do Nginx
+    ansible.builtin.file:
+      path: /etc/nginx/sites-enabled/default
+      state: absent
+    notify: Reload Nginx
+
+  - name: Implantar vhost via template Jinja2
+    ansible.builtin.template:
+      src: site.conf.j2
+      dest: /etc/nginx/sites-available/app.conf
+      owner: root
+      group: root
+      mode: "0644"
+    notify: Reload Nginx
+
+  - name: Habilitar vhost
+    ansible.builtin.file:
+      src: /etc/nginx/sites-available/app.conf
+      dest: /etc/nginx/sites-enabled/app.conf
+      state: link
+    notify: Reload Nginx

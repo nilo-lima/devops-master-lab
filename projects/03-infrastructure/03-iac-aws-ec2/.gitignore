@@ -1,0 +1,18 @@
+# Terraform state (contém IPs, ARNs e dados sensíveis)
+.terraform/
+terraform.tfstate
+terraform.tfstate.backup
+.terraform.lock.hcl
+*.tfvars
+
+# Chave SSH privada — NUNCA versionar
+*.pem
+*.key
+
+# Inventário Ansible (contém IP real da instância)
+ansible/inventory.ini
+
+# Cache e temporários
+__pycache__/
+*.retry
+.ansible/

@@ -1,0 +1,17 @@
+---
+  - name: Atualizar cache de pacotes e aplicar upgrades seguros
+    ansible.builtin.apt:
+      update_cache: true
+      upgrade: safe
+      cache_valid_time: 3600
+
+  - name: Instalar utilitários essenciais e fail2ban
+    ansible.builtin.apt:
+      name: "{{ base_packages }}"
+      state: present
+
+  - name: Garantir que fail2ban está ativo e habilitado no boot
+    ansible.builtin.service:
+      name: fail2ban
+      state: started
+      enabled: true

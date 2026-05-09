@@ -1,0 +1,29 @@
+---
+- name: Configurar servidor web na AWS
+  hosts: web
+  become: true
+  gather_facts: true
+
+  roles:
+    - role: base
+    - role: nginx
+
+  post_tasks:
+    - name: Implantar página de apresentação do projeto
+      ansible.builtin.copy:
+        dest: /var/www/html/index.html
+        owner: www-data
+        group: www-data
+        mode: "0644"
+        content: |
+          <!DOCTYPE html>
+          <html lang="pt-BR">
+          <head><meta charset="UTF-8"><title>IaC AWS EC2 — DevOps Master Lab</title></head>
+          <body style="font-family:monospace;max-width:600px;margin:80pxauto;text-align:center">
+            <h1>✅ Infraestrutura como Código</h1>
+            <p>Este servidor foi provisionado com <strong>Terraform</strong><br>
+            e configurado com <strong>Ansible</strong> de forma 100% automatizada.</p>
+            <hr>
+            <small>DevOps Master Lab · Pilar 03 — Infrastructure</small>
+          </body>
+          </html>
