@@ -38,12 +38,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Configurar chave SSH
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.EC2_NODE_SSH_KEY }}" > ~/.ssh/deploy_key.pem
-          chmod 600 ~/.ssh/deploy_key.pem
-          ssh-keyscan -H ${{ secrets.EC2_HOST }} >> ~/.ssh/known_hosts
+      - name: Configurar SSH Agent
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.EC2_NODE_SSH_KEY }}
+
+      - name: Adicionar host ao known_hosts
+        run: ssh-keyscan -H ${{ secrets.EC2_HOST }} >> ~/.ssh/known_hosts
 
       - name: Instalar Ansible
         run: pip install ansible
@@ -56,7 +57,6 @@ jobs:
               nodejs_server:
                 ansible_host: ${{ secrets.EC2_HOST }}
                 ansible_user: ${{ secrets.EC2_USER }}
-                ansible_ssh_private_key_file: ~/.ssh/deploy_key.pem
           INVENTORY
 
       - name: Executar playbook Ansible
