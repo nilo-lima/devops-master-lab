@@ -7,26 +7,22 @@
     force: true
 
 - name: Construir imagem Docker
-  community.docker.docker_image:
-    name: "{{ app_image_name }}"
-    build:
-    path: "{{ app_repo_dest }}/{{ app_subdir }}"
-    source: build
-    force_source: true
+  ansible.builtin.command:
+    cmd: docker build -t {{ app_image_name }} {{ app_repo_dest }}/{{ app_subdir }}
+  changed_when: true
 
-- name: Parar e remover container existente (se houver)
-  community.docker.docker_container:
-    name: "{{ app_container_name }}"
-    state: absent
+- name: Parar container existente (se houver)
+  ansible.builtin.shell: docker stop {{ app_container_name }} 2>/dev/null || true
+  changed_when: false
+
+- name: Remover container existente (se houver)
+  ansible.builtin.shell: docker rm {{ app_container_name }} 2>/dev/null || true
+  changed_when: false
 
 - name: Iniciar container Node.js
-  community.docker.docker_container:
-    name: "{{ app_container_name }}"
-    image: "{{ app_image_name }}"
-    state: started
-    restart_policy: always
-    ports:
-      - "{{ app_port }}:{{ app_port }}"
+  ansible.builtin.command:
+    cmd: docker run -d --name {{ app_container_name }} --restart always -p {{ app_port }}:{{ app_port }} {{ app_image_name }}
+  changed_when: true
 
 - name: Configurar Nginx como reverse proxy
   ansible.builtin.template:
