@@ -1,0 +1,10 @@
+---
+- name: Provisionar servidor Node.js
+  hosts: all
+  become: true
+
+  roles:
+    - role: base
+      tags: [base]
+    - role: app
+      tags: [app]

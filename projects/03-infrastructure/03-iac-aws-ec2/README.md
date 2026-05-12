@@ -1,4 +1,4 @@
-# 🏗️ IaC AWS EC2 — Terraform + Ansible
+# 🏗️ IaC AWS EC2 - Terraform + Ansible
 
 > Provisionamento e configuração de servidor web na AWS de forma 100% automatizada: um comando cria toda a infraestrutura, outro a configura.
 
@@ -16,9 +16,9 @@ Implementação do desafio [IaC on DigitalOcean](https://roadmap.sh/projects/iac
 
 | Funcionalidade | Descrição |
 |:---------------|:----------|
-| **Geração de chave SSH via Terraform** | Par RSA-4096 criado localmente — a AWS nunca recebe a chave privada |
+| **Geração de chave SSH via Terraform** | Par RSA-4096 criado localmente. A AWS nunca recebe a chave privada |
 | **Infraestrutura zero-manual** | Security Group, Key Pair e Elastic IP criados 100% via código |
-| **Inventário Ansible automático** | IP extraído do `terraform output` — sem copiar IPs manualmente |
+| **Inventário Ansible automático** | IP extraído do `terraform output` sem copiar IPs manualmente |
 | **Configuração idempotente** | `ansible-playbook` pode ser re-executado sem efeitos colaterais |
 | **Servidor web funcional** | Nginx instalado e servindo conteúdo via HTTP na instância real |
 | **Proteção SSH ativa** | Fail2ban habilitado no boot contra ataques de brute-force |
@@ -108,7 +108,7 @@ graph TD
 
 **Alternativa rejeitada:** Criar o Key Pair manualmente no console AWS e referenciar o nome via variável (como no projeto 01 deste lab).
 
-**Justificativa:** IaC puro exige que *nenhuma* etapa seja manual. Com `tls_private_key`, o Terraform gera a chave, registra a pública na AWS e salva a privada localmente com `chmod 0600` — tudo em um único `terraform apply`, sem interação humana.
+**Justificativa:** IaC puro exige que *nenhuma* etapa seja manual. Com `tls_private_key`, o Terraform gera a chave, registra a pública na AWS e salva a privada localmente com `chmod 0600` e tudo em um único `terraform apply`, sem interação humana.
 
 ---
 
@@ -128,7 +128,7 @@ graph TD
 
 **Alternativa rejeitada:** Inventário estático editado manualmente após o `apply`.
 
-**Justificativa:** Elimina a etapa de copiar o IP do console para um arquivo — fonte frequente de erros humanos. O `realpath` resolve o caminho relativo retornado pelo Terraform (`./../iac-aws-ec2.pem`) para um caminho absoluto, garantindo que o Ansible encontre a chave independentemente do diretório de execução.
+**Justificativa:** Elimina a etapa de copiar o IP do console para um arquivo, fonte frequente de erros humanos. O `realpath` resolve o caminho relativo retornado pelo Terraform (`./../iac-aws-ec2.pem`) para um caminho absoluto, garantindo que o Ansible encontre a chave independentemente do diretório de execução.
 
 ---
 
@@ -138,7 +138,7 @@ graph TD
 
 **Alternativa rejeitada:** Passar `-o StrictHostKeyChecking=no` inline no `inventory.ini`.
 
-**Justificativa:** A abordagem inline em arquivos INI é frágil — quebras de linha silenciosas fazem o Ansible interpretar opções SSH como hostnames (bug encontrado e corrigido neste projeto). O `ansible.cfg` é o lugar semântico correto para configurações do Ansible.
+**Justificativa:** A abordagem inline em arquivos INI é frágil, onde quebras de linha silenciosas fazem o Ansible interpretar opções SSH como hostnames (bug encontrado e corrigido neste projeto). O `ansible.cfg` é o lugar semântico correto para configurações do Ansible.
 
 ---
 
@@ -146,7 +146,7 @@ graph TD
 
 **Decisão:** Adaptar as roles `base` e `nginx` criadas no projeto `02-ansible-config-management`.
 
-**Justificativa:** Promove reusabilidade e consolida o aprendizado anterior. A diferença crítica: a role `base` agora inicia o `fail2ban` com `state: started` e `enabled: true` — impossível em containers Docker (projeto 02), mas necessário em servidor real para proteção no boot.
+**Justificativa:** Promove reusabilidade e consolida o aprendizado anterior. A diferença crítica: a role `base` agora inicia o `fail2ban` com `state: started` e `enabled: true`,  impossível em containers Docker (projeto 02), mas necessário em servidor real para proteção no boot.
 
 ---
 
@@ -159,7 +159,7 @@ graph TD
 | Terraform | >= 1.5.0 | [developer.hashicorp.com/terraform/install](https://developer.hashicorp.com/terraform/install) |
 | Ansible | >= 2.16 | `sudo apt install ansible-core` |
 | AWS CLI | >= 2.0 | [aws.amazon.com/cli](https://aws.amazon.com/cli) |
-| Credenciais AWS | — | `aws configure` |
+| Credenciais AWS | - | `aws configure` |
 
 ### Execução
 
@@ -206,16 +206,16 @@ make clean
 ## 🎓 Lições Aprendidas
 
 **1. IaC é sobre eliminar etapas manuais, não apenas sobre código.**
-O projeto 01 deste lab usava SG, Key Pair e IAM Role pré-existentes — era Terraform "parcial". Este projeto demonstra IaC verdadeiro: partindo do zero, qualquer pessoa com credenciais AWS replica a infra completa em minutos.
+O projeto 01 deste lab usava SG, Key Pair e IAM Role pré-existentes. Era Terraform "parcial". Este projeto demonstra IaC verdadeiro: partindo do zero, qualquer pessoa com credenciais AWS replica a infra completa em minutos.
 
 **2. Caminhos relativos são armadilhas em pipelines de automação.**
 O Terraform salva a chave com path relativo ao diretório `terraform/`. Quando o Ansible rodam do diretório raiz do projeto, `./../iac-aws-ec2.pem` não resolvia corretamente. O `realpath` no `deploy.sh` resolve isso convertendo para caminho absoluto antes de escrever o inventário.
 
 **3. Arquivos INI do Ansible são sensíveis a quebras de linha.**
-`ansible_ssh_common_args='-o StrictHostKeyChecking=no'` em uma nova linha do inventário faz o Ansible interpretar a string como um hostname — erro silencioso e difícil de diagnosticar. A solução correta é o `ansible.cfg`.
+`ansible_ssh_common_args='-o StrictHostKeyChecking=no'` em uma nova linha do inventário faz o Ansible interpretar a string como um hostname, um erro silencioso e difícil de diagnosticar. A solução correta é o `ansible.cfg`.
 
 **4. `enabled: true` faz diferença entre Docker e servidor real.**
-No projeto 02, o Ansible rodava contra containers Docker sem capabilities de kernel — fail2ban não podia iniciar. Em EC2 real, omitir `enabled: true` significa que o serviço morre no próximo reboot. Contexto de execução muda as boas práticas.
+No projeto 02, o Ansible rodava contra containers Docker sem capabilities de kernel e o fail2ban não podia iniciar. Em EC2 real, omitir `enabled: true` significa que o serviço morre no próximo reboot. Contexto de execução muda as boas práticas.
 
 ---
 
@@ -239,7 +239,7 @@ Distribuído sob a licença **Apache 2.0**. Esta licença oferece permissão par
   <sub>
     Projeto desenvolvido como parte do
     <a href="https://github.com/nilo-lima/DevOps_Master_Lab">DevOps Master Lab</a>
-    · Pilar <strong>03 — Infrastructure</strong>
+    · Pilar <strong>03 - Infrastructure</strong>
     · Baseado no desafio <a href="https://roadmap.sh/projects/iac-digitalocean">roadmap.sh</a>
   </sub>
 </div>

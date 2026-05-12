@@ -1,0 +1,6 @@
+app_repo_url: "https://github.com/nilo-lima/DevOps_Master_Lab.git"
+app_repo_dest: "/opt/nodejs-service"
+app_subdir: "projects/05-automation/01-nodejs-service-deployment/app"
+app_image_name: "nodejs-service"
+app_container_name: "nodejs-app"
+app_port: 3000
