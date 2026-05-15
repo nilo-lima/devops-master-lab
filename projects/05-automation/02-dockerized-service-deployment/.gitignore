@@ -1,0 +1,21 @@
+# Secrets
+.env
+*.pem
+*.key
+
+# Node
+app/node_modules/
+app/npm-debug.log*
+app/coverage/
+
+# Terraform
+infra/.terraform/
+infra/terraform.tfstate
+infra/terraform.tfstate.backup
+infra/*.tfvars
+infra/override.tf
+
+# Sistema
+.DS_Store
+*.tmp
+*.log
