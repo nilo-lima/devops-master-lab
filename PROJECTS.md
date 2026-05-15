@@ -89,6 +89,7 @@ Navegue pelos projetos do laboratório através desta estrutura organizada pelos
 | :----------------------- | :----------------------------------------------- | :----: | :--------------------------------------------------------------- |
 | **GH Deployment Workflow** | Implantação de site estático via GitHub Actions. |   ✅   | [Repositório](https://github.com/nilo-lima/gh-deployment-workflow) |
 | **Node.js Service Deployment** | Pipeline CI/CD completo: testes Jest → Ansible → deploy automatizado em AWS EC2. | ✅ | [README](./projects/05-automation/01-nodejs-service-deployment/README.md) |
+| **Dockerized Service Deployment** | Pipeline CI/CD com GHCR: build de imagem Docker → push para registry → deploy via `docker pull` em AWS EC2. | ✅ | [README](./projects/05-automation/02-dockerized-service-deployment/README.md) |
 
 <div align="right"><a href="#-dashboard-de-projetos">⬆️ Voltar ao Topo</a></div>
 </details>
