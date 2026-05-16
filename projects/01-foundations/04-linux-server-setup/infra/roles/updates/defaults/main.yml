@@ -1,0 +1,3 @@
+---
+updates_auto_reboot: "false"
+updates_remove_unused_deps: "true"

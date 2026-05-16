@@ -1,0 +1,12 @@
+---
+- name: Linux Server Hardening
+  hosts: lab
+  become: true
+
+  roles:
+    - user-setup
+    - ssh-hardening
+    - firewall
+    - updates
+    - fail2ban
+    - system-config

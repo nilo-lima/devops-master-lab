@@ -1,0 +1,4 @@
+---
+admin_user: devops
+admin_groups:
+  - sudo

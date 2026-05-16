@@ -1,0 +1,25 @@
+---
+- name: Criar usuario administrador
+  ansible.builtin.user:
+    name: "{{ admin_user }}"
+    shell: /bin/bash
+    groups: "{{ admin_groups }}"
+    append: true
+    create_home: true
+    state: present
+
+- name: Configurar sudoers sem senha para o usuario
+  ansible.builtin.lineinfile:
+    path: /etc/sudoers.d/{{ admin_user }}
+    line: "{{ admin_user }} ALL=(ALL) NOPASSWD:ALL"
+    create: true
+    mode: "0440"
+    validate: "visudo -cf %s"
+
+- name: Criar diretorio .ssh
+  ansible.builtin.file:
+    path: /home/{{ admin_user }}/.ssh
+    state: directory
+    owner: "{{ admin_user }}"
+    group: "{{ admin_user }}"
+    mode: "0700"

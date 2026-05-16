@@ -1,0 +1,28 @@
+---
+- name: Backup do sshd_config original
+  ansible.builtin.copy:
+    src: /etc/ssh/sshd_config
+    dest: /etc/ssh/sshd_config.bak
+    remote_src: true
+    force: false
+
+- name: Aplicar configuracoes de hardening SSH
+  ansible.builtin.lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: "^#?{{ item.key }}"
+    line: "{{ item.key }} {{ item.value }}"
+    state: present
+  loop:
+    - { key: "PermitRootLogin",       value: "{{ ssh_permit_root_login }}" }
+    - { key: "PasswordAuthentication", value: "{{ ssh_password_authentication }}" }
+    - { key: "PubkeyAuthentication",  value: "yes" }
+    - { key: "MaxAuthTries",          value: "{{ ssh_max_auth_tries }}" }
+    - { key: "LoginGraceTime",        value: "{{ ssh_login_grace_time }}" }
+    - { key: "X11Forwarding",         value: "{{ ssh_x11_forwarding }}" }
+    - { key: "ClientAliveInterval",   value: "{{ ssh_client_alive_interval }}" }
+    - { key: "ClientAliveCountMax",   value: "{{ ssh_client_alive_count_max }}" }
+
+- name: Reiniciar SSH
+  ansible.builtin.service:
+    name: ssh
+    state: restarted

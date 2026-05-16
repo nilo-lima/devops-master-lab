@@ -1,0 +1,15 @@
+---
+- name: Configurar timezone
+  community.general.timezone:
+    name: "{{ system_timezone }}"
+
+- name: Configurar hostname
+  ansible.builtin.hostname:
+    name: "{{ system_hostname }}"
+
+- name: Atualizar /etc/hosts
+  ansible.builtin.lineinfile:
+    path: /etc/hosts
+    regexp: "^127\\.0\\.1\\.1"
+    line: "127.0.1.1   {{ system_hostname }}"
+    state: present
