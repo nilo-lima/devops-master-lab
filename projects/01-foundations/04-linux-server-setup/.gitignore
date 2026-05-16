@@ -16,6 +16,7 @@ Vagrantfile.local
 # Ansible
 *.retry
 .ansible/
+infra/collections/
 
 # Logs e temporários
 *.log

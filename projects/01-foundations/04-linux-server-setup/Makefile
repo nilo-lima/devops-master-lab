@@ -17,5 +17,8 @@ setup:
 audit:
 	vagrant ssh -c "sudo bash /vagrant/config/07-security-audit.sh"
 
+COLLECTIONS_DIR := $(CURDIR)/infra/collections
+
 lint:
-	ansible-lint infra/site.yml
+	ansible-galaxy collection install -r infra/requirements.yml -p $(COLLECTIONS_DIR) --force
+	cd infra && ANSIBLE_COLLECTIONS_PATH=$(COLLECTIONS_DIR) ansible-lint site.yml
